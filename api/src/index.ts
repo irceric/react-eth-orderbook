@@ -17,17 +17,17 @@ const pollAndEmit = (socket: socketIo.Socket) => {
   const market: string = socket.handshake.query.market;
   const orders = books.getOrders(market);
 
-  socket.emit("orders", orders);
-}
+  socket.emit('orders', orders);
+};
 
 let interval: any;
-io.on("connection", socket => {
-  console.log("New client connected")
+io.on('connection', (socket) => {
+  console.log('New client connected');
   if (interval) {
     clearInterval(interval);
   }
   interval = setInterval(() => pollAndEmit(socket), 500);
-  socket.on("disconnect", () => {
-    console.log("Client disconnected")
-  })
-})
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
+  });
+});

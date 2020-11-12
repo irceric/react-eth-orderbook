@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "react-app"
+  ],
+  "rules": {
+    "flowtype/generic-spacing": [0, "never"],
+    "camelcase": 2,
+    "indent": ["error", 2, {
+      "SwitchCase": 1
+    }],
+    "semi":["error", "always"]
+  }
+}
