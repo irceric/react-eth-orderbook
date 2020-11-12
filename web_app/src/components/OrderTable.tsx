@@ -9,12 +9,12 @@ interface OrderBookProps {
 const OrderTable = ({ orders = {}, type = 'bids' }: OrderBookProps): JSX.Element => {
   let firstPrice = orders && Object.keys(orders)[0];
   if (!firstPrice) return <div>Empty</div>;
-  const exchangesList = orders && Object.keys(orders[firstPrice]["volumes"]).map((exchangeName) => {
-    return <th scope="col">{exchangeName}</th>;
+  const exchangesList = orders && Object.keys(orders[firstPrice]["volumes"]).map((exchangeName, index) => {
+    return <th key={index} scope="col">{exchangeName}</th>;
   });
 
-  const orderList = orders && Object.keys(orders).map((price) => {
-    return <OrderRow price={price} volumes={orders[price]["volumes"]} highlight={orders[price]["highlight"]} />;
+  const orderList = orders && Object.keys(orders).map((price, index) => {
+    return <OrderRow key={index} price={price} volumes={orders[price]["volumes"]} highlight={orders[price]["highlight"]} />;
   });
 
   return (

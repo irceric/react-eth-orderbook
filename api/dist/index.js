@@ -24,11 +24,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
+const cors_1 = __importDefault(require("cors"));
 const socket_io_1 = __importDefault(require("socket.io"));
 const books = __importStar(require("./lib/books"));
 const routes_1 = __importDefault(require("./routes"));
 const port = process.env.PORT || 8080;
 const app = express_1.default();
+app.use(cors_1.default());
 app.use(routes_1.default);
 const server = http_1.default.createServer(app);
 server.listen(port, () => console.log(`Listening on port ${port}`));
