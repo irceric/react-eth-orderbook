@@ -1,2 +1,1 @@
-cd /api
-npm start
+web: node server/dist/index.js
