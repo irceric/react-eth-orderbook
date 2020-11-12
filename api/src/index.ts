@@ -1,5 +1,6 @@
 import express from 'express';
 import http from 'http';
+import * as path from 'path';
 import cors from 'cors';
 import socketIo from 'socket.io';
 import * as books from './lib/books';
@@ -9,6 +10,12 @@ const port = process.env.PORT || 8080;
 const app = express();
 app.use(cors());
 app.use(mainRoute);
+
+app.use(express.static(path.join(__dirname, '../build')));
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build', 'index.html'));
+});
 
 const server = http.createServer(app);
 server.listen(port, () => console.log(`Listening on port ${port}`));
