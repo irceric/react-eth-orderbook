@@ -7,7 +7,7 @@ import OrderAreaChart from './components/OrderAreaChart';
 
 import './App.css';
 
-const endpoint = "http://localhost:8080";
+const endpoint = "https://ether-order-book.herokuapp.com";
 
 function App() {
   const [orders, setOrders] = React.useState<any>({});
