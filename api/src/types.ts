@@ -11,20 +11,9 @@ export interface PoloniexOrderBook {
 	seq: number;
 }
 
-export interface BittrexOrderBook {
-	ask: BittrexOrder[];
-	bid: BittrexOrder[];
-}
-
-
 export interface NormalizedOrder {
 	quantity: number;
 	rate: number;
-}
-
-export interface NormalizedOrderBook {
-	asks: NormalizedOrder[];
-	bids: NormalizedOrder[];
 }
 
 export interface Exchange {
